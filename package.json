@@ -13,6 +13,8 @@
     "@aperturerobotics/chonky": "^0.2.7",
     "@aperturerobotics/chonky-icon-fontawesome": "^0.2.7",
     "@react-pdf-viewer/core": "3.12.0",
+    "@react-pdf-viewer/default-layout": "^3.12.0",
+    "@react-pdf-viewer/toolbar": "^3.12.0",
     "autoprefixer": "^10.4.17",
     "pdfjs-dist": "3.4.120",
     "postcss": "^8.4.35",
@@ -32,6 +34,5 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "typescript": "^5.2.2",
     "vite": "^5.1.0"
-  },
-  "packageManager": "yarn@4.1.0"
+  }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Route, Router, RouterProvider, Routes, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import {RouterProvider, createBrowserRouter} from 'react-router-dom';
 import {FileExplorer} from './screens/FileExplorer.tsx';
 import {VFSMutable} from './screens/VFSMutable.tsx';
 import {Pdf} from './screens/Pdf.tsx';

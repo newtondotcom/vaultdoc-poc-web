@@ -60,3 +60,61 @@ export const russianI18n: I18nConfig = {
         [`chonky.actions.${ChonkyActions.ToggleShowFoldersFirst.id}.button.name`]: 'Папки в начале',
     },
 };
+
+export const frenchI18n: I18nConfig = {
+    locale: 'fr',
+    formatters: {
+        formatFileModDate: (intl: IntlShape, file: FileData | null) => {
+            const safeModDate = FileHelper.getModDate(file);
+            if (safeModDate) {
+                return `${intl.formatDate(safeModDate)}, ${intl.formatTime(
+                    safeModDate
+                )}`;
+            } else {
+                return null;
+            }
+        },
+        formatFileSize: (intl: IntlShape, file: FileData | null) => {
+            if (!file || typeof file.size !== 'number') return null;
+            return `Taille: ${file.size}`;
+        },
+    },
+    messages: {
+        // Chonky UI translation strings
+        'chonky.toolbar.searchPlaceholder': 'Rechercher',
+        'chonky.toolbar.visibleFileCount': `{fileCount, plural,
+            one {# fichier}
+            other {# fichiers}
+        }`,
+        'chonky.toolbar.selectedFileCount': `{fileCount, plural,
+            =0 {}
+            one {# sélectionné}
+            other {# sélectionnés}
+        }`,
+        'chonky.toolbar.hiddenFileCount': `{fileCount, plural,
+            =0 {}
+            one {# caché}
+            other {# cachés}
+        }`,
+        'chonky.fileList.nothingToShow': 'Rien à afficher',
+        'chonky.contextMenu.browserMenuShortcut': 'Menu du navigateur: {shortcut}',
+
+        // File action translation strings
+        [`chonky.actionGroups.Actions`]: 'Actions',
+        [`chonky.actionGroups.Options`]: 'Options',
+        [`chonky.actions.${ChonkyActions.OpenParentFolder.id}.button.name`]: 'Ouvrir le dossier parent',
+        [`chonky.actions.${ChonkyActions.CreateFolder.id}.button.name`]: 'Créer un dossier',
+        [`chonky.actions.${ChonkyActions.CreateFolder.id}.button.tooltip`]: 'Créer un nouveau dossier',
+        [`chonky.actions.${ChonkyActions.DeleteFiles.id}.button.name`]: 'Supprimer les fichiers',
+        [`chonky.actions.${ChonkyActions.OpenSelection.id}.button.name`]: 'Ouvrir la sélection',
+        [`chonky.actions.${ChonkyActions.SelectAllFiles.id}.button.name`]: 'Sélectionner tout',
+        [`chonky.actions.${ChonkyActions.ClearSelection.id}.button.name`]: 'Effacer la sélection',
+        [`chonky.actions.${ChonkyActions.EnableListView.id}.button.name`]: 'Afficher la liste',
+        [`chonky.actions.${ChonkyActions.EnableGridView.id}.button.name`]: 'Afficher les icônes',
+        [`chonky.actions.${ChonkyActions.SortFilesByName.id}.button.name`]: 'Trier par nom',
+        [`chonky.actions.${ChonkyActions.SortFilesBySize.id}.button.name`]: 'Trier par taille',
+        [`chonky.actions.${ChonkyActions.SortFilesByDate.id}.button.name`]: 'Trier par date',
+        [`chonky.actions.${ChonkyActions.ToggleHiddenFiles.id}.button.name`]: 'Fichiers cachés',
+        [`chonky.actions.${ChonkyActions.ToggleShowFoldersFirst.id}.button.name`]: 'Dossiers en premier',
+    },
+};

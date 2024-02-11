@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import React, { useContext, useEffect } from 'react';
+import React, { useContext} from 'react';
 import { Nullable } from 'tsdef';
 
 import { DndEntryState } from '../../types/file-list.types';
@@ -35,11 +35,13 @@ export const GridEntryPreviewFolder: React.FC<FileEntryPreviewProps> = React.mem
 
   const folderClasses = useFolderStyles(entryState);
   const fileClasses = useFileStyles(entryState);
-  const commonClasses = useCommonEntryStyles(entryState);
+  //const commonClasses = useCommonEntryStyles(entryState);
   const className = c({
     [folderClasses.previewFile]: true,
     [externalClassName || '']: !!externalClassName,
   });
+
+  //<div className={commonClasses.selectionIndicator}></div> 
   return (
     <div className={className}>
       <div className={folderClasses.folderBackSideMid}>

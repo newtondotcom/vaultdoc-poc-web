@@ -16,6 +16,7 @@ import {
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import DemoFsMap from '../utils/map.json';
 import { ChonkyIconFA } from '@aperturerobotics/chonky-icon-fontawesome';
+import { useNavigate } from 'react-router-dom';
 
 // We define a custom interface for file data because we want to add some custom fields
 // to Chonky's built-in `FileData` interface.
@@ -227,6 +228,7 @@ export const useFileActionHandler = (
     moveFiles: (files: FileData[], source: FileData, destination: FileData) => void,
     createFolder: (folderName: string) => void
 ) => {
+    const navigate = useNavigate();
     return useCallback(
         (data: ChonkyFileActionData) => {
             if (data.id === ChonkyActions.OpenFiles.id) {
@@ -235,6 +237,14 @@ export const useFileActionHandler = (
                 if (fileToOpen && FileHelper.isDirectory(fileToOpen)) {
                     setCurrentFolderId(fileToOpen.id);
                     return;
+                } else {
+                    if (!targetFile) return;
+                    const extension = targetFile.name.split('.').pop();
+                    if (extension === 'gif') {
+                        navigate(`/pdf`);
+                    } else if (extension === 'png') {
+                        navigate(`/image`);
+                    }
                 }
             } else if (data.id === ChonkyActions.DeleteFiles.id) {
                 deleteFiles(data.state.selectedFilesForAction!);
@@ -263,7 +273,7 @@ export const VFSBrowser: React.FC<VFSProps> = React.memo((props) => {
         fileMap,
         currentFolderId,
         setCurrentFolderId,
-        resetFileMap,
+        //resetFileMap,
         deleteFiles,
         moveFiles,
         createFolder,

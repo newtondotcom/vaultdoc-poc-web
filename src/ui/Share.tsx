@@ -10,7 +10,7 @@ const Share = ({ isMobile, supportFileShare }: { isMobile: boolean,supportFileSh
           }),
         ];
 
-        var shareData = { files: filesArray };
+        var shareData : ShareData = { files: filesArray };
         if (navigator.canShare && navigator.canShare(shareData)) {
           // Adding title afterwards as navigator.canShare just
           // takes files as input

@@ -15,6 +15,7 @@ export const russianI18n: I18nConfig = {
             }
         },
         formatFileSize: (intl: IntlShape, file: FileData | null) => {
+            intl = intl;
             if (!file || typeof file.size !== 'number') return null;
             return `Размер: ${file.size}`;
         },
@@ -75,6 +76,7 @@ export const frenchI18n: I18nConfig = {
             }
         },
         formatFileSize: (intl: IntlShape, file: FileData | null) => {
+            intl = intl;
             if (!file || typeof file.size !== 'number') return null;
             return `Taille: ${file.size}`;
         },

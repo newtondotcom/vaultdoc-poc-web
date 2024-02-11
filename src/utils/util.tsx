@@ -3,7 +3,7 @@ import { ChonkyActions, ChonkyFileActionData } from '@aperturerobotics/chonky';
 //import Noty from 'noty';
 //import 'noty/lib/noty.css';
 //import 'noty/lib/themes/relax.css';
-import React, { ReactElement, useMemo } from 'react';
+import { ReactElement, useMemo } from 'react';
 //import './override.css';
 
 // We ignore some actions to avoid creating noise

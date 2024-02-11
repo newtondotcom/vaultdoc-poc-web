@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom/client';
 import {RouterProvider, createBrowserRouter} from 'react-router-dom';
 import {VFSMutable} from './screens/VFSMutable.tsx';
 import {Pdf} from './screens/Pdf.tsx';
+import {Image} from './screens/Image.tsx';
 import './index.css';
 
 const router = createBrowserRouter([
   { path: '/vfs-mutable', element: <VFSMutable /> },
   { path: '/pdf', element: <Pdf/> },
+  { path: '/image', element: <Image/>}
 ]
 );
 

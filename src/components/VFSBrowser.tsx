@@ -12,7 +12,7 @@ import {
     FileData,
     FileHelper,
     FullFileBrowser,
-} from '@aperturerobotics/chonky';
+} from '../chonky';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import DemoFsMap from '../utils/map.json';
 import { ChonkyIconFA } from '@aperturerobotics/chonky-icon-fontawesome';
@@ -286,8 +286,10 @@ export const VFSBrowser: React.FC<VFSProps> = React.memo((props) => {
         []
     );
 
+    const windowHeight = window.innerHeight;
+
     return (
-            <div className='h-full w-full'>
+            <div className='h-full w-full' style={{ height: windowHeight }}>
                 <FullFileBrowser
                     files={files}
                     folderChain={folderChain}
@@ -297,8 +299,6 @@ export const VFSBrowser: React.FC<VFSProps> = React.memo((props) => {
                     iconComponent={ChonkyIconFA}
                     {...props}
                 />
-
-            <button onClick={resetFileMap}>Reset file map</button>
             </div>
     );
 });

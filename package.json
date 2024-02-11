@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@aperturerobotics/chonky": "^0.2.7",
     "@aperturerobotics/chonky-icon-fontawesome": "^0.2.7",
     "@react-pdf-viewer/core": "3.12.0",
     "@react-pdf-viewer/default-layout": "^3.12.0",

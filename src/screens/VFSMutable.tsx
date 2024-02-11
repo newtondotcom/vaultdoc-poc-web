@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { VFSBrowser } from '../components/VFSBrowser';
-import {russianI18n} from '../utils/i18n';
+import {russianI18n,frenchI18n} from '../utils/i18n';
 
 const storyName = 'Advanced mutable VFS';
 export const VFSMutable: React.FC = () => {
-    const [locale, setLocale] = useState('ru');
+    const [locale, setLocale] = useState('fr');
     const handleLocaleChange = useCallback(
         (event: { target: { value: React.SetStateAction<string>; }; }) => setLocale(event.target.value),
         []

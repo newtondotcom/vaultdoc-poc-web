@@ -26,6 +26,14 @@ const ToolbarSlotsExample: React.FC<ToolbarSlotsExampleProps> = ({ fileUrl }) =>
 
     const isMobile = width <= 768;
 
+    let supportFileShare : boolean = false;
+    if (navigator.canShare && navigator.canShare({ files: [          
+        new File(["Hello, world!"], "hello world.txt", {
+        type: "text/plain",
+      }),] })) {
+        supportFileShare = true;
+    }
+
     const toolbarPluginInstance = toolbarPlugin();
     const { Toolbar } = toolbarPluginInstance;
 
@@ -99,7 +107,7 @@ const ToolbarSlotsExample: React.FC<ToolbarSlotsExampleProps> = ({ fileUrl }) =>
                                     / <NumberOfPages />
                                 </div>
                                 <div style={{ padding: '0px 2px', marginLeft:'auto', marginRight:'auto' }}>
-                                    <Share isMobile={isMobile} />
+                                    <Share isMobile={isMobile} supportFileShare={supportFileShare} />
                                 </div>
                                 {isMobile ? "" :
                                 <div style={{ padding: '0px 2px', marginLeft: 'auto' }}>

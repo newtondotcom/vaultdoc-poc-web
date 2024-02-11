@@ -4,12 +4,28 @@ import { toolbarPlugin, ToolbarSlot } from '@react-pdf-viewer/toolbar';
 
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/toolbar/lib/styles/index.css';
+import Share from '../ui/Share';
+import Back from '../ui/Back';
 
 interface ToolbarSlotsExampleProps {
     fileUrl: string;
 }
 
 const ToolbarSlotsExample: React.FC<ToolbarSlotsExampleProps> = ({ fileUrl }) => {
+    const [width, setWidth] = React.useState<number>(window.innerWidth);
+
+    function handleWindowSizeChange() {
+        setWidth(window.innerWidth);
+    }
+    React.useEffect(() => {
+        window.addEventListener('resize', handleWindowSizeChange);
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        }
+    }, []);
+
+    const isMobile = width <= 768;
+
     const toolbarPluginInstance = toolbarPlugin();
     const { Toolbar } = toolbarPluginInstance;
 
@@ -22,7 +38,7 @@ const ToolbarSlotsExample: React.FC<ToolbarSlotsExampleProps> = ({ fileUrl }) =>
                 flexDirection: 'column',
                 height: '100%',
                 width: '100%',
-                position: 'fixed',
+                position: 'relative',
             }}
         >
             <div
@@ -61,23 +77,35 @@ const ToolbarSlotsExample: React.FC<ToolbarSlotsExampleProps> = ({ fileUrl }) =>
                         return (
                             <>
                                 <div style={{ padding: '0px 2px' }}>
+                                    <Back isMobile={isMobile} />
+                                </div>
+                                {isMobile ? "" :
+                                <div style={{ padding: '0px 2px' }}>
                                     <ZoomOut />
                                 </div>
+                                }
                                 <div style={{ padding: '0px 2px' }}>
                                     <Zoom />
                                 </div>
+                                {isMobile ? "" :
                                 <div style={{ padding: '0px 2px' }}>
                                     <ZoomIn />
                                 </div>
-                                <div style={{ padding: '0px 2px', width: '4rem' }}>
+                                }
+                                <div style={{ padding: '0px 2px', width: '2rem' }}>
                                     <CurrentPageInput />
                                 </div>
-                                <div style={{ padding: '0px 2px' }}>
+                                <div style={{ padding: '0px 2px', color: "black" }}>
                                     / <NumberOfPages />
                                 </div>
+                                <div style={{ padding: '0px 2px', marginLeft:'auto', marginRight:'auto' }}>
+                                    <Share isMobile={isMobile} />
+                                </div>
+                                {isMobile ? "" :
                                 <div style={{ padding: '0px 2px', marginLeft: 'auto' }}>
                                     <EnterFullScreen />
                                 </div>
+                                }
                                 <div style={{ padding: '0px 2px' }}>
                                     <Download />
                                 </div>

@@ -9,7 +9,7 @@ export const VFSMutable: React.FC = () => {
         (event: { target: { value: React.SetStateAction<string>; }; }) => setLocale(event.target.value),
         []
     );
-    const i18n = useMemo(() => (locale === 'ru' ? russianI18n : {}), [locale]);
+    const i18n = useMemo(() => (locale === 'fr' ? frenchI18n : {}), [locale]);
     return (
             <VFSBrowser instanceId={storyName} 
             i18n={i18n} />

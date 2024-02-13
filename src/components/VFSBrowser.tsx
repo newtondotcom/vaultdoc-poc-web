@@ -240,10 +240,18 @@ export const useFileActionHandler = (
                 } else {
                     if (!targetFile) return;
                     const extension = targetFile.name.split('.').pop();
-                    if (extension === 'gif') {
+                    if (extension === 'pdf') {
                         navigate(`/pdf`);
-                    } else if (extension === 'png') {
+                    } else if (
+                    extension === 'png' ||
+                    extension === 'jpg' || 
+                    extension === 'jpeg' ||
+                    extension === 'gif'
+                    ) {
                         navigate(`/image`);
+                    }
+                    else {
+                        alert('File type not supported');
                     }
                 }
             } else if (data.id === ChonkyActions.DeleteFiles.id) {

@@ -4,7 +4,9 @@ env:
   DOCKER_TAG : newtondotcom/vaultdoc:latest
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   docker:

@@ -7,7 +7,7 @@ import {Image} from './screens/Image.tsx';
 import './index.css';
 
 const router = createBrowserRouter([
-  { path: '/vfs-mutable', element: <VFSMutable /> },
+  { path: '/', element: <VFSMutable /> },
   { path: '/pdf', element: <Pdf/> },
   { path: '/image', element: <Image/>}
 ]

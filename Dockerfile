@@ -6,6 +6,6 @@ COPY . ./
 RUN yarn build
 
 FROM nginx:stable-alpine3.17
-COPY --from=build-deps /usr/src/app/build /usr/share/nginx/html
+COPY --from=build-deps /usr/src/app/dist /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
